@@ -1,0 +1,64 @@
+body {
+    background-color: #24353F
+}
+
+.sign_block {
+    box-shadow: -5px 2px 54px -9px rgb(0 0 0);
+}
+
+h1 {
+    color: #17a2b8;
+    font-size: 2.5rem;
+    font-weight: 400 !important;
+}
+
+::placeholder {
+    color: #ccc !important
+}
+
+input {
+    color: #fff !important;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: all 1s;
+}
+
+.form-control:focus {
+    border: 1px solid #80bdff;
+    box-shadow: 0 0 0 0 transparent;
+}
+
+.input-field small {
+    display: none;
+
+}
+
+.error small {
+    display: block;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    box-shadow: -5px 2px 54px -9px rgb(0 0 0);
+    padding: 20px 0;
+    z-index: 999;
+
+}
+
+.welcome_block {
+    margin-top: 200px !important;
+}
+
+.navbar-nav .btn {
+    border: 1px solid rgb(238, 238, 114)
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}

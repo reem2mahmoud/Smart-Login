@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="description" content="DevFolio Bootstrap Portfolio">
+    <meta name="keywords" content="DevFolio, Bootstrap, Portfolio ,About , Service , Blog ">
+    <meta name="author" content="Reema">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TITLE , ICON -->
+    <title>Smart login</title>
+    <link rel="icon" href="./images/favicon.png" type="image/icon type">
+    <!-- GOOGLE-FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP-CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- BOOTSTRAP-ICONS -->
+    <link rel="stylesheet" href="../css/bootstrap-icons.min.css">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="../css/all.css">
+    <!-- STYLE -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+    <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container ">
+        <div class="sign_block sign_in_form w-75 m-auto mt-5 text-center p-5">
+            <h1>Smart Login System</h1>
+            <form class="row sign_up_form">
+                <!-- name -->
+                <div class="input-field">
+                    <input type="text" name="name" id="name" class="mt-3 form-control bg-transparent"
+                        placeholder="Enter your name" oninput="deleteError(0)">
+                    <small class="text-danger float-start">name cannot be empty</small>
+                </div>
+                <!-- email -->
+                <div class="input-field">
+                    <input type="email" name="email" id="email" class="mt-3 form-control bg-transparent"
+                        placeholder="Enter your email" oninput="deleteError(1)">
+                    <small class="text-danger float-start">email cannot be empty</small>
+                </div>
+                <!-- password -->
+                <div class="input-field">
+                    <input type="password" name="password" id="password" class="mt-3 form-control  bg-transparent"
+                        placeholder="Enter your password" oninput="deleteError(2)">
+                    <small class="text-danger float-start">password cannot be empty</small>
+                </div>
+                <button id="sign_up_btn" class="btn btn-outline-info text-capitalize mt-4">sign
+                    up</button>
+                <p class="text-white mt-3">You have an account?
+                    <a href="../index.html" class="text-white text-decoration-none ms-1">Sign In</a>
+                </p>
+            </form>
+        </div>
+
+    </div>
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/index.js"></script>
+
+</body>
+
+
+</html>
