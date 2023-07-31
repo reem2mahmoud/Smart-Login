@@ -1,9 +1,11 @@
 var inputs = document.querySelectorAll("form input");
 var sign_up_btn = document.querySelector(".sign_up_form #sign_up_btn");
+
 var sign_in_btn = document.querySelector(".sign_in_form #sign_in_btn");
 var small_errors = document.querySelectorAll("small");
 var user_name = document.querySelector(".welcome_block  #user_name");
 var logout_btn = document.querySelector(".collapse #logout_btn");
+
 var valid_inputs = true;
 var users = [];
 var repeated = false;
@@ -88,7 +90,8 @@ sign_up_btn.addEventListener("click", function (e) {
 });
 
 //LOGOUT
-logout_btn.addEventListener("click", function () {
+logout_btn.addEventListener("click", function (e) {
+  e.preventDefault();
   console.log("logout btn");
   localStorage.removeItem("user");
   window.location.replace("../index.html");
@@ -137,6 +140,7 @@ function deleteError(i) {
   inputs[i].parentElement.classList.remove("error");
 }
 
+//USER-NAME IN WELCOME PAGE
 if (user_name) {
   console.log("username");
   var user = JSON.parse(localStorage.getItem("user"));
