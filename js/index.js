@@ -13,7 +13,10 @@ var exist = false;
 var empty_inputs = false;
 
 // SIGN-IN
-if (window.location.pathname.includes("/index.html")) {
+if (
+  window.location.pathname.includes("/index.html") ||
+  window.location.pathname.includes("/")
+) {
   sign_in_btn.addEventListener("click", function (e) {
     e.preventDefault();
     users = JSON.parse(localStorage.getItem("users"));
