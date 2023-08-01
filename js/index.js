@@ -23,7 +23,7 @@ if (window.location.pathname.includes("/index.html")) {
         empty_inputs = true;
       }
     }
-
+    console.log(empty_inputs, "empty_inputs");
     if (!empty_inputs) {
       if (users) {
         for (var i = 0; i < users.length; i++) {
@@ -150,6 +150,7 @@ function addError(i, message) {
 function deleteError(i) {
   valid_inputs = true;
   repeated = false;
+  empty_inputs = false;
   inputs[i].classList.remove("is-invalid");
   inputs[i].parentElement.classList.remove("error");
 }
