@@ -13,10 +13,7 @@ var exist = false;
 var empty_inputs = false;
 
 // SIGN-IN
-if (
-  window.location.pathname.includes("/index.html") ||
-  window.location.pathname.includes("/")
-) {
+if (window.location.pathname.includes("/index.html")) {
   sign_in_btn.addEventListener("click", function (e) {
     e.preventDefault();
     users = JSON.parse(localStorage.getItem("users"));
@@ -26,7 +23,7 @@ if (
         empty_inputs = true;
       }
     }
-    console.log(empty_inputs, "empty_inputs");
+
     if (!empty_inputs) {
       if (users) {
         for (var i = 0; i < users.length; i++) {
@@ -159,7 +156,7 @@ function deleteError(i) {
 }
 
 //USER-NAME IN WELCOME PAGE
-if (window.location.pathname == "/pages/welcome.html") {
+if (window.location.pathname.includes("/pages/welcome.html")) {
   if (user_name) {
     var user = JSON.parse(localStorage.getItem("user"));
     user_name.innerText = user.name;
