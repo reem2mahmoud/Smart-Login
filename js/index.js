@@ -107,7 +107,7 @@ if (window.location.pathname.includes("/pages/sign_up.html")) {
 }
 
 //LOGOUT
-if (window.location.pathname == "/pages/welcome.html") {
+if (window.location.pathname.includes("/pages/welcome.html")) {
   logout_btn.addEventListener("click", function (e) {
     e.preventDefault();
     localStorage.removeItem("user");
