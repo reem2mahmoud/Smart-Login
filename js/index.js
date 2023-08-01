@@ -13,7 +13,7 @@ var exist = false;
 var empty_inputs = false;
 
 // SIGN-IN
-if (window.location.pathname == "/index.html") {
+if (window.location.pathname.includes("/index.html")) {
   sign_in_btn.addEventListener("click", function (e) {
     e.preventDefault();
     users = JSON.parse(localStorage.getItem("users"));
@@ -62,7 +62,7 @@ if (window.location.pathname == "/index.html") {
 }
 
 // SIGN-UP
-if (window.location.pathname == "/pages/sign_up.html") {
+if (window.location.pathname.includes("/pages/sign_up.html")) {
   sign_up_btn.addEventListener("click", function (e) {
     e.preventDefault();
     for (var i = 0; i < inputs.length; i++) {
