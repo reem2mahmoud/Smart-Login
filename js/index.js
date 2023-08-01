@@ -10,39 +10,53 @@ var valid_inputs = true;
 var users = [];
 var repeated = false;
 var exist = false;
+var empty_inputs = false;
 
 // SIGN-IN
 if (window.location.pathname == "/index.html") {
   sign_in_btn.addEventListener("click", function (e) {
     e.preventDefault();
     users = JSON.parse(localStorage.getItem("users"));
-    if (users) {
-      for (var i = 0; i < users.length; i++) {
-        if (
-          users[i].email == inputs[0].value &&
-          users[i].password == inputs[1].value
-        ) {
-          exist = true;
-          localStorage.setItem("user", JSON.stringify(users[i]));
-        }
+    for (var i = 0; i < inputs.length; i++) {
+      if (!inputs[i].value) {
+        addError(i, "");
+        empty_inputs = true;
       }
-      if (exist) {
-        swal(
-          "Congratulation",
-          `${inputs[0].value} successfully loggined`,
-          "success"
-        );
+    }
 
-        window.location.replace("pages/welcome.html");
+    if (!empty_inputs) {
+      if (users) {
+        for (var i = 0; i < users.length; i++) {
+          if (
+            users[i].email == inputs[0].value &&
+            users[i].password == inputs[1].value
+          ) {
+            exist = true;
+            localStorage.setItem("user", JSON.stringify(users[i]));
+          }
+        }
+        if (exist) {
+          swal(
+            "Congratulation",
+            `${inputs[0].value} successfully loggined`,
+            "success"
+          );
+
+          window.location.replace("pages/welcome.html");
+        } else {
+          swal(
+            "Email or Password not valid",
+            "Please try again later",
+            "error"
+          );
+        }
       } else {
-        swal("Email or Password not valid", "Please try again later", "error");
+        swal(
+          "User not stored",
+          "Please go sign up page and stored your record",
+          "error"
+        );
       }
-    } else {
-      swal(
-        "User not stored",
-        "Please go sign up page and stored your record",
-        "error"
-      );
     }
   });
 }
@@ -77,7 +91,6 @@ if (window.location.pathname == "/pages/sign_up.html") {
       };
 
       if (JSON.parse(localStorage.getItem("users"))) {
-        console.log("here");
         users = JSON.parse(localStorage.getItem("users"));
         for (var i = 0; i < users.length; i++) {
           if (users[i].email == user.email) {
@@ -97,7 +110,6 @@ if (window.location.pathname == "/pages/sign_up.html") {
 if (window.location.pathname == "/pages/welcome.html") {
   logout_btn.addEventListener("click", function (e) {
     e.preventDefault();
-    console.log("logout btn");
     localStorage.removeItem("user");
     window.location.replace("../index.html");
   });
@@ -105,10 +117,8 @@ if (window.location.pathname == "/pages/welcome.html") {
 
 //CREATE USER AND ADD IN STORAGE
 function addInStorge(user) {
-  console.log("users before", users);
   users.push(user);
   localStorage.setItem("users", JSON.stringify(users));
-  console.log("users after", users);
   swal("Good job!", `${user.name} Record Saved Successfully!`, "success");
   window.location.replace("../index.html");
 }
@@ -123,7 +133,6 @@ function checkEmailValidation(email) {
 function checkPassValidation(pass) {
   var regex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/;
-  console.log(regex.test(String(pass)));
   return regex.test(String(pass));
 }
 
@@ -133,7 +142,6 @@ function addError(i, message) {
   inputs[i].classList.add("is-invalid");
   inputs[i].parentElement.classList.add("error");
   if (message) {
-    console.log("message");
     small_errors[i].innerText = message;
   }
 }
@@ -149,9 +157,7 @@ function deleteError(i) {
 //USER-NAME IN WELCOME PAGE
 if (window.location.pathname == "/pages/welcome.html") {
   if (user_name) {
-    console.log("username");
     var user = JSON.parse(localStorage.getItem("user"));
-    console.log(user.name, "user.name");
     user_name.innerText = user.name;
   }
 }
